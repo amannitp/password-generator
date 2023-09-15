@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Random Password Generator</title>
 </head>
 <body>
+    <div class="card">
+        <h1>Generate a <br><span>Random Password</span></h1>
+        <div class="dispaly">
+            <input type="text" id="password" placeholder="Password">
+            <img src='./password-genartor-image/copy.png' alt="" id="copyPassword">
+        </div>
+        <button id="generatePassword"><img src="./password-genartor-image/generate.png" alt="">Generate Password</button>
+    </div>
     
 </body>
+<script>
+
+    const password=document.getElementById('password');
+    const copyPassword=document.getElementById('copyPassword')
+    const generatePassword=document.getElementById('generatePassword')
+
+    generatePassword.addEventListener('click',showGeneratedPassword)
+      
+
+    
+    function showGeneratedPassword(e){
+        console.log(" password is created ")
+        
+        password.value=generateRandomPassword(12)
+    }
+    copyPassword.addEventListener('click',copyGeneratedPassword)
+
+    function copyGeneratedPassword(){
+        password.style.color='red'
+     
+    }
+  function generateRandomPassword(length) {
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
+        let password = "";
+      
+        for (let i = 0; i < length; i++) {
+          const randomIndex = Math.floor(Math.random() * charset.length);
+          password += charset[randomIndex];
+   }
+
+       return password;
+}
+
+
+</script>
+<script src="./index.js"></script>
 </html>
