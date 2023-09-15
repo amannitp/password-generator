@@ -37,7 +37,8 @@
     copyPassword.addEventListener('click',copyGeneratedPassword)
 
     function copyGeneratedPassword(){
-        password.style.color='red'
+       password.select();  // // Select the text within the input element
+       document.execCommand() // Copy the selected text to the clipboard
      
     }
 
